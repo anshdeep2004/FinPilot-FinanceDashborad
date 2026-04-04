@@ -82,30 +82,31 @@ const IncomeExpenseGraph = ({ transactions }) => {
     data.reduce((a, b) => a + b.expenses, 0) / data.length;
 
   return (
-    <div className="bg-white rounded-2xl p-6 border border-gray-300 w-full mb-5">
+    <div className="bg-white dark:bg-[#121614] dark:text-gray-100 rounded-2xl p-6 border border-gray-300 dark:border-gray-700 w-full mb-5">
         <div className="flex justify-between items-center mb-4">
             <div>
                 <h2 className="text-lg font-semibold">Statistics</h2>
                 <div className="flex gap-4 mt-1 text-sm">
                     <div className="flex items-center gap-2">
                         <span className="w-3 h-3 rounded-full bg-green-600"></span>
-                        <span className="text-gray-600">Total income</span>
+                        <span className="text-gray-600 dark:text-gray-100">Total income</span>
                     </div>
 
                     <div className="flex items-center gap-2">
                         <span className="w-3 h-3 rounded-full bg-orange-500"></span>
-                        <span className="text-gray-600">Total expenses</span>
+                        <span className="text-gray-600 dark:text-gray-100">Total expenses</span>
                     </div>
                 </div>
             </div>
 
-            <div className="relative inline-block">
+            <div className="relative inline-block dark:bg-[#121614]">
                 <Calendar className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" size={16} />
 
                 <select
                     value={range}
                     onChange={(e) => setRange(e.target.value)}
-                    className="border rounded-lg pl-8 pr-4 py-1 text-sm appearance-none bg-white"
+                    className="border rounded-lg pl-8 pr-4 py-1 text-sm appearance-none bg-white dark:bg-gray-900 
+                    border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-100 focus:outline-none"
                 >
                     <option value="monthly">Monthly</option>
                     <option value="yearly">Yearly</option>
@@ -146,7 +147,7 @@ const IncomeExpenseGraph = ({ transactions }) => {
             </ResponsiveContainer>
         </div>
 
-        <div className="flex gap-x-64 mt-6">
+        <div className="flex flex-col gap-y-10 min-[660px]:flex-row min-[660px]:gap-x-40 min-[750px]:gap-x-64 mt-6">
             <div>
                 <p className="text-sm text-gray-500">Average income</p>
                 <p className="text-2xl font-semibold">

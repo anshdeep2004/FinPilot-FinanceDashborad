@@ -1,59 +1,3 @@
-// import React from "react";
-// import MyBalance from "../components/MyBalance";
-// import IncomeExpence from "../components/IncomeExpence";
-// import AllExpenses from "../components/AllExpences";
-// import IncomeExpenseGraph from "../components/IncomeExpenseGraph";
-// import Ad from "../components/Ad";
-
-// const Dashboard = () => {
-//     const expenseData = [
-//         { name: "Food", value: 30, color: "#22c55e" },
-//         { name: "Shopping", value: 25, color: "#ef4444" },
-//         { name: "Entertainment", value: 20, color: "#f97316" },
-//         { name: "Others", value: 25, color: "#06b6d4" },
-//     ];
-//     return (
-//         <div className="px-6">
-//             <div className="flex gap-4 w-full">
-//                 <div className="w-7/10 flex flex-col gap-4">
-//                     <div className="w-full flex gap-4">
-//                         <div className="w-2/5">
-//                             <MyBalance />
-//                         </div>
-//                         <div className="flex gap-4 w-3/5">
-//                             <IncomeExpence 
-//                                 inc_exp="Income"
-//                                 money="1,17,000"
-//                                 inc_dec="+2.5%"
-//                             />
-//                             <IncomeExpence 
-//                                 inc_exp="Expense"
-//                                 money="45,000"
-//                                 inc_dec="-1.8%"
-//                             />
-//                         </div>
-//                     </div>
-//                     <div className="w-full">
-//                         <IncomeExpenseGraph />
-//                     </div>
-//                 </div>
-//                 <div className="w-3/10">
-//                     <div className="flex flex-col gap-4">
-//                         <AllExpenses
-//                             data={expenseData}
-//                             daily="1000"
-//                             weekly="10000"
-//                             monthly="45000"
-//                         />
-//                         <Ad />
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-// export default Dashboard;
-
 import React, { useEffect, useState } from "react";
 import MyBalance from "../components/MyBalance";
 import IncomeExpence from "../components/IncomeExpence";
@@ -114,14 +58,14 @@ const Dashboard = () => {
     }));
 
     return (
-        <div className="px-6">
-            <div className="flex gap-4 w-full">
-                <div className="w-7/10 flex flex-col gap-4">
-                    <div className="w-full flex gap-4">
-                        <div className="w-2/5">
+        <div className="px-6 dark:bg-gray-950 py-4">
+            <div className="flex flex-col min-[1300px]:flex-row gap-4 w-full">
+                <div className="min-[1300px]:w-7/10 w-full flex flex-col gap-4">
+                    <div className="w-full flex flex-col min-[900px]:flex-row gap-4">
+                        <div className="min-[900px]:w-2/5 w-full">
                             <MyBalance balance={balance} />
                         </div>
-                        <div className="flex gap-4 w-3/5">
+                        <div className="flex gap-4 min-[900px]:w-3/5 w-full">
                             <IncomeExpence 
                                 inc_exp="Income"
                                 money={monthlyIncome.toLocaleString()}
@@ -140,7 +84,7 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="w-3/10">
+                <div className="min-[1300px]:w-3/10 w-full">
                     <div className="flex flex-col gap-4">
                         <AllExpenses
                             data={expenseData}

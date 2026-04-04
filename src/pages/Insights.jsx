@@ -19,32 +19,43 @@ const Insights = () => {
     t => new Date(t.date).getMonth() === month
   );
 
-  return (
-    <div className="px-6 flex flex-col gap-6">
+    return (
+      <div className="px-6 flex flex-col gap-6 dark:bg-gray-950 py-4">
 
-      {/* Month Selector */}
-      <select
-        value={month}
-        onChange={(e) => setMonth(Number(e.target.value))}
-        className="border px-4 py-2 rounded-lg w-48"
-      >
-        {["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-          .map((m, i) => (
-            <option key={i} value={i}>{m}</option>
-          ))}
-      </select>
+        {/* Month Selector */}
+        <select
+          value={month}
+          onChange={(e) => setMonth(Number(e.target.value))}
+          className="border border-gray-300 dark:border-gray-700 dark:bg-[#121614] dark:text-gray-100 px-4 py-2 rounded-lg w-48"
+        >
+          {["January","February","March","April","May","June","July","August","September","October","November","December"]
+            .map((m, i) => (
+              <option key={i} value={i}>{m}</option>
+            ))}
+        </select>
 
-      {/* Summary */}
-      <Summary transactions={filtered} />
+        {/* Cards Layout */}
+        <div className="flex gap-4 w-full">
 
-      {/* Category */}
-      <CategoryWiseBreak transactions={filtered} />
+          {/* LEFT SIDE */}
+          <div className="w-1/3">
+            <Summary transactions={filtered} />
+          </div>
 
-      {/* Smart Insights */}
-      <SentenceInsights transactions={filtered} />
+          {/* MIDDLE */}
+          <div className="w-1/3">
+            <CategoryWiseBreak transactions={filtered} />
+          </div>
 
-    </div>
-  );
+          {/* RIGHT SIDE */}
+          <div className="w-1/3">
+            <SentenceInsights transactions={filtered} />
+          </div>
+
+        </div>
+
+      </div>
+    );
 };
 
 export default Insights;

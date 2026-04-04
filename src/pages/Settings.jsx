@@ -2,7 +2,7 @@ import React from "react";
 
 const Settings = () => {
     return (
-        <div className="l">Settings</div>
+        <div className="px-6">Settings</div>
     )
 }
 export default Settings;
